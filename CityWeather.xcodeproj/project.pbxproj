@@ -15,13 +15,18 @@
 		A2950AA4185AA9A60041722C /* NHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2950AA3185AA9A60041722C /* NHAppDelegate.m */; };
 		A2950AA7185AA9A60041722C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2950AA5185AA9A60041722C /* Main_iPhone.storyboard */; };
 		A2950AAA185AA9A60041722C /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2950AA8185AA9A60041722C /* Main_iPad.storyboard */; };
-		A2950AAD185AA9A60041722C /* NHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2950AAC185AA9A60041722C /* NHViewController.m */; };
+		A2950AAD185AA9A60041722C /* NHCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2950AAC185AA9A60041722C /* NHCityViewController.m */; };
 		A2950AAF185AA9A60041722C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2950AAE185AA9A60041722C /* Images.xcassets */; };
 		A2950AB6185AA9A60041722C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2950AB5185AA9A60041722C /* XCTest.framework */; };
 		A2950AB7185AA9A60041722C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2950A93185AA9A60041722C /* Foundation.framework */; };
 		A2950AB8185AA9A60041722C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2950A97185AA9A60041722C /* UIKit.framework */; };
 		A2950AC0185AA9A60041722C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2950ABE185AA9A60041722C /* InfoPlist.strings */; };
 		A2950AC2185AA9A60041722C /* CityWeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2950AC1185AA9A60041722C /* CityWeatherTests.m */; };
+		A2950ACD185AC17F0041722C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2950ACB185AC17F0041722C /* Model.xcdatamodeld */; };
+		A2950AD0185AC3750041722C /* NHCityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2950ACF185AC3750041722C /* NHCityManager.m */; };
+		A2950AD3185AC4ED0041722C /* NHCity.m in Sources */ = {isa = PBXBuildFile; fileRef = A2950AD2185AC4ED0041722C /* NHCity.m */; };
+		A2A3EF1118611D29005E8453 /* NHCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A3EF1018611D29005E8453 /* NHCityCell.m */; };
+		A2EF2106186132CE0028937A /* NHAddCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EF2105186132CE0028937A /* NHAddCityViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,14 +52,23 @@
 		A2950AA3185AA9A60041722C /* NHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NHAppDelegate.m; sourceTree = "<group>"; };
 		A2950AA6185AA9A60041722C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		A2950AA9185AA9A60041722C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		A2950AAB185AA9A60041722C /* NHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NHViewController.h; sourceTree = "<group>"; };
-		A2950AAC185AA9A60041722C /* NHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NHViewController.m; sourceTree = "<group>"; };
+		A2950AAB185AA9A60041722C /* NHCityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NHCityViewController.h; sourceTree = "<group>"; };
+		A2950AAC185AA9A60041722C /* NHCityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NHCityViewController.m; sourceTree = "<group>"; };
 		A2950AAE185AA9A60041722C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A2950AB4185AA9A60041722C /* CityWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2950AB5185AA9A60041722C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A2950ABD185AA9A60041722C /* CityWeatherTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CityWeatherTests-Info.plist"; sourceTree = "<group>"; };
 		A2950ABF185AA9A60041722C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A2950AC1185AA9A60041722C /* CityWeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityWeatherTests.m; sourceTree = "<group>"; };
+		A2950ACC185AC17F0041722C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		A2950ACE185AC3750041722C /* NHCityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHCityManager.h; sourceTree = "<group>"; };
+		A2950ACF185AC3750041722C /* NHCityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHCityManager.m; sourceTree = "<group>"; };
+		A2950AD1185AC4ED0041722C /* NHCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHCity.h; sourceTree = "<group>"; };
+		A2950AD2185AC4ED0041722C /* NHCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHCity.m; sourceTree = "<group>"; };
+		A2A3EF0F18611D29005E8453 /* NHCityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHCityCell.h; sourceTree = "<group>"; };
+		A2A3EF1018611D29005E8453 /* NHCityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHCityCell.m; sourceTree = "<group>"; };
+		A2EF2104186132CE0028937A /* NHAddCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHAddCityViewController.h; sourceTree = "<group>"; };
+		A2EF2105186132CE0028937A /* NHAddCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHAddCityViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,10 +130,19 @@
 			children = (
 				A2950AA2185AA9A60041722C /* NHAppDelegate.h */,
 				A2950AA3185AA9A60041722C /* NHAppDelegate.m */,
+				A2950ACB185AC17F0041722C /* Model.xcdatamodeld */,
 				A2950AA5185AA9A60041722C /* Main_iPhone.storyboard */,
 				A2950AA8185AA9A60041722C /* Main_iPad.storyboard */,
-				A2950AAB185AA9A60041722C /* NHViewController.h */,
-				A2950AAC185AA9A60041722C /* NHViewController.m */,
+				A2950AAB185AA9A60041722C /* NHCityViewController.h */,
+				A2950AAC185AA9A60041722C /* NHCityViewController.m */,
+				A2950ACE185AC3750041722C /* NHCityManager.h */,
+				A2950ACF185AC3750041722C /* NHCityManager.m */,
+				A2950AD1185AC4ED0041722C /* NHCity.h */,
+				A2950AD2185AC4ED0041722C /* NHCity.m */,
+				A2A3EF0F18611D29005E8453 /* NHCityCell.h */,
+				A2A3EF1018611D29005E8453 /* NHCityCell.m */,
+				A2EF2104186132CE0028937A /* NHAddCityViewController.h */,
+				A2EF2105186132CE0028937A /* NHAddCityViewController.m */,
 				A2950AAE185AA9A60041722C /* Images.xcassets */,
 				A2950A9A185AA9A60041722C /* Supporting Files */,
 			);
@@ -254,9 +277,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2950AAD185AA9A60041722C /* NHViewController.m in Sources */,
+				A2950AD3185AC4ED0041722C /* NHCity.m in Sources */,
+				A2950AD0185AC3750041722C /* NHCityManager.m in Sources */,
+				A2950AAD185AA9A60041722C /* NHCityViewController.m in Sources */,
+				A2EF2106186132CE0028937A /* NHAddCityViewController.m in Sources */,
 				A2950AA4185AA9A60041722C /* NHAppDelegate.m in Sources */,
+				A2A3EF1118611D29005E8453 /* NHCityCell.m in Sources */,
 				A2950AA0185AA9A60041722C /* main.m in Sources */,
+				A2950ACD185AC17F0041722C /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +503,7 @@
 				A2950AC7185AA9A60041722C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A2950AC8185AA9A60041722C /* Build configuration list for PBXNativeTarget "CityWeatherTests" */ = {
 			isa = XCConfigurationList;
@@ -483,8 +512,22 @@
 				A2950ACA185AA9A60041722C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A2950ACB185AC17F0041722C /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A2950ACC185AC17F0041722C /* Model.xcdatamodel */,
+			);
+			currentVersion = A2950ACC185AC17F0041722C /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A2950A88185AA9A60041722C /* Project object */;
 }
