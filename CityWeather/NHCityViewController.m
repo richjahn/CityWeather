@@ -26,11 +26,11 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     //[self.collectionView registerClass:[NHCityCell class] forCellWithReuseIdentifier:@"Cell"];
+    
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.navigationBar.hidden = YES;
-    
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"NHCity"];
     request.predicate = [NSPredicate predicateWithValue:YES];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
@@ -40,8 +40,12 @@
                                                            managedObjectContext:[NHCityManager sharedManager].mainContext
                                                              sectionNameKeyPath:nil
                                                                       cacheName:@"allCities"];
-    _fetchController.delegate = self;
+    //s_fetchController.delegate = self;
     [_fetchController performFetch:nil];
+    
+    [self.collectionView reloadData];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.navigationController.navigationBar setNeedsDisplay];
 }
 
 //- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
@@ -62,6 +66,10 @@
         NHCityCell *cityCell = (NHCityCell *)cell;
         NHCity *city = [_fetchController objectAtIndexPath:indexPath];
         cityCell.CityName.text = city.name;
+        UIImage *weatherIconImage = [UIImage imageNamed:@"bkn_i.png"];
+        cityCell.weatherIcon = [[UIImageView alloc] initWithImage:weatherIconImage];
+        cityCell.currentTemperature.text = [NSString stringWithFormat:@"%d\u00B0", 30];
+        cityCell.currentCondition.text = @"Cloudy";
     }
     
     return cell;

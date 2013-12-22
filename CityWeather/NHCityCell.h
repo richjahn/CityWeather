@@ -12,4 +12,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *CityName;
 
+@property (weak, nonatomic) IBOutlet UILabel *currentTemperature;
+
+@property (retain, nonatomic) IBOutlet UIImageView *weatherIcon;
+
+@property (weak, nonatomic) IBOutlet UILabel *currentCondition;
+
 @end

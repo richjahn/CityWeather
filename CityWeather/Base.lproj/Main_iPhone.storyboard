@@ -25,19 +25,59 @@
                                     <rect key="frame" x="0.0" y="0.0" width="144" height="133"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Minneapolis" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oax-zb-ZAS">
-                                            <rect key="frame" x="20" y="13" width="110" height="38"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minneapolis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oax-zb-ZAS">
+                                            <rect key="frame" x="6" y="0.0" width="133" height="39"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="39" id="weF-ei-atd"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tt4-HK-NtN">
+                                            <rect key="frame" x="6" y="94" width="133" height="39"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rDH-XE-1Bp">
+                                            <rect key="frame" x="42" y="37" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp7-aP-uRS">
+                                            <rect key="frame" x="42" y="37" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="tt4-HK-NtN" firstAttribute="top" secondItem="oax-zb-ZAS" secondAttribute="bottom" constant="55" id="29A-QG-bGA"/>
+                                    <constraint firstItem="oax-zb-ZAS" firstAttribute="top" secondItem="DjL-GC-Zz5" secondAttribute="top" id="D4F-a3-FdP"/>
+                                    <constraint firstItem="tt4-HK-NtN" firstAttribute="centerX" secondItem="Bp7-aP-uRS" secondAttribute="centerX" id="E0o-3i-Gsf"/>
+                                    <constraint firstItem="Bp7-aP-uRS" firstAttribute="bottom" secondItem="rDH-XE-1Bp" secondAttribute="bottom" id="Fgx-ec-lFt"/>
+                                    <constraint firstItem="rDH-XE-1Bp" firstAttribute="centerX" secondItem="DjL-GC-Zz5" secondAttribute="centerX" id="IBD-nb-Jhf"/>
+                                    <constraint firstItem="Bp7-aP-uRS" firstAttribute="leading" secondItem="rDH-XE-1Bp" secondAttribute="leading" id="Oc3-MD-mzB"/>
+                                    <constraint firstItem="Bp7-aP-uRS" firstAttribute="leading" secondItem="DjL-GC-Zz5" secondAttribute="leading" constant="42" id="Xrk-Jz-j8S"/>
+                                    <constraint firstAttribute="bottom" secondItem="tt4-HK-NtN" secondAttribute="bottom" id="Yqa-PK-dvx"/>
+                                    <constraint firstItem="Bp7-aP-uRS" firstAttribute="top" secondItem="DjL-GC-Zz5" secondAttribute="top" constant="37" id="ZBc-Rf-b7b"/>
+                                    <constraint firstItem="oax-zb-ZAS" firstAttribute="trailing" secondItem="tt4-HK-NtN" secondAttribute="trailing" id="e7W-q3-u5d"/>
+                                    <constraint firstItem="oax-zb-ZAS" firstAttribute="leading" secondItem="DjL-GC-Zz5" secondAttribute="leading" constant="6" id="eRD-zY-dPs"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bp7-aP-uRS" secondAttribute="bottom" constant="36" id="mgg-BN-Hig"/>
+                                    <constraint firstItem="tt4-HK-NtN" firstAttribute="leading" secondItem="oax-zb-ZAS" secondAttribute="leading" id="pAu-6e-lGK"/>
+                                    <constraint firstItem="rDH-XE-1Bp" firstAttribute="top" secondItem="Bp7-aP-uRS" secondAttribute="top" id="sg1-Xw-pXf"/>
+                                    <constraint firstItem="rDH-XE-1Bp" firstAttribute="trailing" secondItem="Bp7-aP-uRS" secondAttribute="trailing" id="ybC-xQ-LgU"/>
+                                </constraints>
                                 <size key="customSize" width="144" height="133"/>
                                 <connections>
                                     <outlet property="CityName" destination="oax-zb-ZAS" id="Gcp-dW-Itk"/>
+                                    <outlet property="currentCondition" destination="tt4-HK-NtN" id="YZn-ez-gUV"/>
+                                    <outlet property="currentTemperature" destination="Bp7-aP-uRS" id="sr8-Pm-ruB"/>
+                                    <outlet property="weatherIcon" destination="rDH-XE-1Bp" id="fu8-T0-nWi"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddCityCell" id="HSZ-v7-7fq">
@@ -62,7 +102,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="Wf5-1H-rmz" kind="push" id="M8C-P3-vyA"/>
                                 </connections>
