@@ -158,6 +158,8 @@ NSString * const kSearchTextKey = @"Search Text"; /*< NSDictionary key for enter
         NSManagedObjectContext *context = [NHCityManager sharedManager].mainContext;
         NHCity *city = (id)[NSEntityDescription insertNewObjectForEntityForName:@"NHCity" inManagedObjectContext:context];
         city.name = description;
+        city.latitude = [NSNumber numberWithDouble:location.coordinate.latitude];
+        city.longitude = [NSNumber numberWithDouble:location.coordinate.longitude];
         [context save:nil];
     }
 }

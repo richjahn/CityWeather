@@ -16,8 +16,7 @@
 
 @end
 
-@implementation NHCityViewController
-{
+@implementation NHCityViewController {
     NSFetchedResultsController *_fetchController;
 }
 
@@ -43,9 +42,47 @@
     //s_fetchController.delegate = self;
     [_fetchController performFetch:nil];
     
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self updateCurrentWeatherAllCities];
+    });
+    
     [self.collectionView reloadData];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     [self.navigationController.navigationBar setNeedsDisplay];
+}
+
+- (void) updateCurrentWeatherAllCities {
+    NSArray *fetchedObjects = [_fetchController fetchedObjects];
+    
+    NSDate *currentTime = [NSDate date];
+    NSString *baseURL = @"https://api.forecast.io/forecast";
+    NSString *key = @"7129fcaa2d9ad67fd7ecacede9d6f8de";
+    
+    for (NHCity *city in fetchedObjects) {
+        
+        NSString *url = [NSString stringWithFormat:@"%@/%@/%@,%@,%ld",
+                         baseURL,
+                         key,
+                         city.latitude,
+                         city.longitude,
+                         (long)[currentTime timeIntervalSince1970]];
+
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+        
+        NSError *error;
+        NSDictionary *json = [NSJSONSerialization
+                              JSONObjectWithData:data
+                              options:0
+                              error:&error];
+        NSDictionary *current = json[@"currently"];
+        
+        NSManagedObjectContext *context = [NHCityManager sharedManager].mainContext;
+        
+        city.currentTemperature = current[@"temperature"];
+        
+        [context save:nil];
+    }
+    [self.collectionView reloadData];
 }
 
 //- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
@@ -53,7 +90,6 @@
 //}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    //return 4;
     return [_fetchController.sections[section] numberOfObjects] + 1;
 }
 
@@ -65,11 +101,14 @@
     if (isAddCityCell == NO) {
         NHCityCell *cityCell = (NHCityCell *)cell;
         NHCity *city = [_fetchController objectAtIndexPath:indexPath];
+        
         cityCell.CityName.text = city.name;
         UIImage *weatherIconImage = [UIImage imageNamed:@"bkn_i.png"];
         cityCell.weatherIcon = [[UIImageView alloc] initWithImage:weatherIconImage];
-        cityCell.currentTemperature.text = [NSString stringWithFormat:@"%d\u00B0", 30];
-        cityCell.currentCondition.text = @"Cloudy";
+        if (city.currentTemperature != nil) {
+            cityCell.currentTemperature.text = [NSString stringWithFormat:@"%.0f\u00B0", [city.currentTemperature floatValue]];
+        }
+        cityCell.currentCondition.text = @"Cloudy"; //city.currentConditionDescription;
     }
     
     return cell;

@@ -14,4 +14,8 @@
 @dynamic latitude;
 @dynamic longitude;
 
+@dynamic currentTemperature;
+@dynamic weatherIconFile;
+@dynamic currentConditionDescription;
+
 @end

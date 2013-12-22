@@ -15,4 +15,8 @@
 @property (nonatomic, retain) NSNumber *latitude;
 @property (nonatomic, retain) NSNumber *longitude;
 
+@property (nonatomic, retain) NSNumber *currentTemperature;
+@property (nonatomic, retain) NSString *weatherIconFile;
+@property (nonatomic, retain) NSString *currentConditionDescription;
+
 @end
