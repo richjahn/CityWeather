@@ -91,9 +91,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sSn-SF-P4y">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="sSn-SF-P4y">
                                 <rect key="frame" x="0.0" y="65" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5sG-rK-bSQ"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="Wf5-1H-rmz" id="eLw-LX-xu3"/>
@@ -101,6 +104,11 @@
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sSn-SF-P4y" firstAttribute="top" secondItem="Bmj-u1-2oo" secondAttribute="bottom" constant="1" id="0hc-zP-rOO"/>
+                            <constraint firstItem="sSn-SF-P4y" firstAttribute="leading" secondItem="oeN-XM-hiR" secondAttribute="leading" id="ntR-sc-7Op"/>
+                            <constraint firstAttribute="trailing" secondItem="sSn-SF-P4y" secondAttribute="trailing" id="tNw-lP-bRO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add City" id="4iG-1U-5wa">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Y3i-hI-lgK">

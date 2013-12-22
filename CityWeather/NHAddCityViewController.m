@@ -8,6 +8,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import "NHAddCityViewController.h"
+#import "NHCityViewController.h"
 #import "NHCity.h"
 #import "NHCityManager.h"
 
@@ -15,6 +16,7 @@ NSString * const kSearchTextKey = @"Search Text"; /*< NSDictionary key for enter
 
 @interface NHAddCityViewController () {
     NSMutableArray * _geocodingResults;
+    NSMutableArray * _cityDescriptions;
     CLGeocoder * _geocoder;
     NSTimer * _searchTimer;
 }
@@ -29,6 +31,7 @@ NSString * const kSearchTextKey = @"Search Text"; /*< NSDictionary key for enter
     self.navigationController.navigationBar.hidden = NO;
     
     _geocodingResults = [NSMutableArray array];
+    _cityDescriptions = [NSMutableArray array];
     _geocoder = [[CLGeocoder alloc] init];
     
     
@@ -36,9 +39,7 @@ NSString * const kSearchTextKey = @"Search Text"; /*< NSDictionary key for enter
 }
 
 - (IBAction) cancelButtonPushed:(id)sender {
-    [self.view endEditing:YES];
-    self.navigationController.navigationBar.hidden = YES;
-    [self.navigationController popViewControllerAnimated:YES];
+    [self goBackToCityView];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -86,6 +87,12 @@ NSString * const kSearchTextKey = @"Search Text"; /*< NSDictionary key for enter
 - (void) processForwardGeocodingResults:(NSArray *)placemarks {
     [_geocodingResults removeAllObjects];
     [_geocodingResults addObjectsFromArray:placemarks];
+    
+    [_cityDescriptions removeAllObjects];
+    for (CLPlacemark *placemark in placemarks) {
+        [_cityDescriptions addObject:[self cityDescriptionFromPlacemark:placemark]];
+    }
+    
     [self.searchDisplayController.searchResultsTableView reloadData];
 }
 
@@ -97,20 +104,56 @@ NSString * const kSearchTextKey = @"Search Text"; /*< NSDictionary key for enter
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    NSString *cityDescription = _cityDescriptions[indexPath.row];
     
-    CLPlacemark *placemark = _geocodingResults[indexPath.row];
-    
-    cell.textLabel.text = [placemark locality];
-                           
+    cell.textLabel.text = cityDescription;
+
     return cell;
 }
 
-//- (IBAction)addCity:(id)sender {
-//    NSManagedObjectContext *context = [NHCityManager sharedManager].mainContext;
-//    NHCity *city = (id)[NSEntityDescription insertNewObjectForEntityForName:@"NHCity" inManagedObjectContext:context];
-//    city.name = _cityName.text;
-//    [context save:nil];
-//}
+- (NSString *)cityDescriptionFromPlacemark:(CLPlacemark *)placemark {
+    NSMutableString *description = [[NSMutableString alloc] init];
+    NSString *city = placemark.addressDictionary[@"City"];
+    if (city != nil) {
+        [description appendString:city];
+        NSString *countryCode = placemark.addressDictionary[@"CountryCode"];
+        if ([countryCode isEqualToString:@"US"]) {
+            NSString *state = placemark.addressDictionary[@"State"];
+            if (state != nil) {
+                [description appendFormat:@", %@", state];
+            }
+        } else {
+            NSString *country = placemark.addressDictionary[@"Country"];
+            if (country != nil) {
+                [description appendFormat:@", %@", country];
+            }
+        }
+    }
+    return [NSString stringWithString:description];
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CLPlacemark *placemark = _geocodingResults[indexPath.row];
+    NSString *cityDescription = _cityDescriptions[indexPath.row];
+    [self addCityWithDescription:cityDescription atLocation:placemark.location];
+    [self goBackToCityView];
+}
+
+- (void)goBackToCityView {
+    [self.view endEditing:YES];
+    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)addCityWithDescription:(NSString *)description atLocation:(CLLocation *)location {
+    NSManagedObjectContext *context = [NHCityManager sharedManager].mainContext;
+    NHCity *city = (id)[NSEntityDescription insertNewObjectForEntityForName:@"NHCity" inManagedObjectContext:context];
+    city.name = description;
+    [context save:nil];
+}
 @end

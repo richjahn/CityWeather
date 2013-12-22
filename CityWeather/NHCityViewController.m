@@ -26,9 +26,10 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     //[self.collectionView registerClass:[NHCityCell class] forCellWithReuseIdentifier:@"Cell"];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.hidden = YES;
-    
     
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"NHCity"];
     request.predicate = [NSPredicate predicateWithValue:YES];
