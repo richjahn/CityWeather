@@ -88,14 +88,30 @@
         city.currentTemperature = current[@"temperature"];
         city.currentSummary = current[@"summary"];
         
+        if (current[@"icon"] != [NSNull null]) {
+            NSString *icon = current[@"icon"];
+            if ([icon isEqualToString:@"clear-day"] ||
+                [icon isEqualToString:@"clear-night"] ||
+                [icon isEqualToString:@"rain"] ||
+                [icon isEqualToString:@"snow"] ||
+                [icon isEqualToString:@"sleet"] ||
+                [icon isEqualToString:@"fog"] ||
+                [icon isEqualToString:@"cloudy"] ||
+                [icon isEqualToString:@"partly-cloudy-day"] ||
+                [icon isEqualToString:@"partly-cloudy-night"]) {
+                city.weatherIconFile = icon;
+            } else {
+                city.weatherIconFile = nil;
+            }
+        } else {
+            city.weatherIconFile = nil;
+        }
+        
+        
         [context save:nil];
     }
     [self.collectionView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
-
-//- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
-//    return 1;
-//}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [_fetchController.sections[section] numberOfObjects] + 1;
@@ -112,8 +128,10 @@
         
         cityCell.CityName.text = city.name;
 
-        UIImage *weatherIconImage = [UIImage imageNamed:@"bkn_i.png"];
-        cityCell.weatherIcon = [[UIImageView alloc] initWithImage:weatherIconImage];
+        if (city.weatherIconFile != nil) {
+            UIImage *weatherIconImage = [UIImage imageNamed:city.weatherIconFile];
+            cityCell.weatherIcon.image = weatherIconImage;
+        }
 
         if (city.currentTemperature != nil) {
             cityCell.currentTemperature.text = [NSString stringWithFormat:@"%.0f\u00B0", [city.currentTemperature floatValue]];
