@@ -35,7 +35,9 @@
 - (void) updateCurrentWeatherForCity {
     NSDate *currentTime = [NSDate date];
     NHCityManager *cityManager = [NHCityManager sharedManager];
-    [cityManager updateCurrentWeatherForCity:self.city forDate:currentTime];
+    [cityManager updateCurrentWeatherAllDetailsForCity:self.city forDate:currentTime];
+    NSManagedObjectContext *context = cityManager.mainContext;
+    [context save:nil];
     [self updateViewWithCurrentWeather];
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
@@ -45,7 +47,7 @@
     self.summary.text = self.city.currentSummary;
     self.apparentTemperature.text = [NSString stringWithFormat:@"Feels like %.0f\u00B0F", [self.city.apparentTemperature floatValue]];
     self.windSpeed.text = [NSString stringWithFormat:@"Wind: %.0f mph", [self.city.windSpeed floatValue]];
-    self.humidity.text = [NSString stringWithFormat:@"%.0f%%", [self.city.humidity floatValue] * 100.0];
+    self.humidity.text = [NSString stringWithFormat:@"Humidity: %.0f%%", [self.city.humidity floatValue] * 100.0];
     self.dewPoint.text = [NSString stringWithFormat:@"Dew Pt: %.0f", [self.city.dewPoint floatValue]];
     self.visibility.text = [NSString stringWithFormat:@"Visibility: %.0f mi", [self.city.visibility floatValue]];
 }

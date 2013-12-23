@@ -112,6 +112,7 @@ static NSString *key = @"7129fcaa2d9ad67fd7ecacede9d6f8de";
 }
 
 - (void) updateFullDetailsForCity:(NHCity *)city fromDictionary:(NSDictionary *)current {
+    city.apparentTemperature = current[@"apparentTemperature"];
     city.windSpeed = current[@"windSpeed"];
     city.humidity = current[@"humidity"];
     city.dewPoint = current[@"dewPoint"];
