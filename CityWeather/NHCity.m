@@ -16,6 +16,6 @@
 
 @dynamic currentTemperature;
 @dynamic weatherIconFile;
-@dynamic currentConditionDescription;
+@dynamic currentSummary;
 
 @end

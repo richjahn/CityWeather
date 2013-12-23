@@ -45,7 +45,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp7-aP-uRS">
-                                            <rect key="frame" x="42" y="37" width="60" height="60"/>
+                                            <rect key="frame" x="20" y="37" width="104" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="38"/>
@@ -61,8 +61,8 @@
                                     <constraint firstItem="tt4-HK-NtN" firstAttribute="centerX" secondItem="Bp7-aP-uRS" secondAttribute="centerX" id="E0o-3i-Gsf"/>
                                     <constraint firstItem="Bp7-aP-uRS" firstAttribute="bottom" secondItem="rDH-XE-1Bp" secondAttribute="bottom" id="Fgx-ec-lFt"/>
                                     <constraint firstItem="rDH-XE-1Bp" firstAttribute="centerX" secondItem="DjL-GC-Zz5" secondAttribute="centerX" id="IBD-nb-Jhf"/>
-                                    <constraint firstItem="Bp7-aP-uRS" firstAttribute="leading" secondItem="rDH-XE-1Bp" secondAttribute="leading" id="Oc3-MD-mzB"/>
-                                    <constraint firstItem="Bp7-aP-uRS" firstAttribute="leading" secondItem="DjL-GC-Zz5" secondAttribute="leading" constant="42" id="Xrk-Jz-j8S"/>
+                                    <constraint firstItem="Bp7-aP-uRS" firstAttribute="leading" secondItem="rDH-XE-1Bp" secondAttribute="leading" constant="-22" id="Oc3-MD-mzB"/>
+                                    <constraint firstItem="Bp7-aP-uRS" firstAttribute="leading" secondItem="DjL-GC-Zz5" secondAttribute="leading" constant="20" id="Xrk-Jz-j8S"/>
                                     <constraint firstAttribute="bottom" secondItem="tt4-HK-NtN" secondAttribute="bottom" id="Yqa-PK-dvx"/>
                                     <constraint firstItem="Bp7-aP-uRS" firstAttribute="top" secondItem="DjL-GC-Zz5" secondAttribute="top" constant="37" id="ZBc-Rf-b7b"/>
                                     <constraint firstItem="oax-zb-ZAS" firstAttribute="trailing" secondItem="tt4-HK-NtN" secondAttribute="trailing" id="e7W-q3-u5d"/>
@@ -70,7 +70,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Bp7-aP-uRS" secondAttribute="bottom" constant="36" id="mgg-BN-Hig"/>
                                     <constraint firstItem="tt4-HK-NtN" firstAttribute="leading" secondItem="oax-zb-ZAS" secondAttribute="leading" id="pAu-6e-lGK"/>
                                     <constraint firstItem="rDH-XE-1Bp" firstAttribute="top" secondItem="Bp7-aP-uRS" secondAttribute="top" id="sg1-Xw-pXf"/>
-                                    <constraint firstItem="rDH-XE-1Bp" firstAttribute="trailing" secondItem="Bp7-aP-uRS" secondAttribute="trailing" id="ybC-xQ-LgU"/>
+                                    <constraint firstItem="rDH-XE-1Bp" firstAttribute="trailing" secondItem="Bp7-aP-uRS" secondAttribute="trailing" constant="-22" id="ybC-xQ-LgU"/>
                                 </constraints>
                                 <size key="customSize" width="144" height="133"/>
                                 <connections>

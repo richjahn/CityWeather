@@ -42,9 +42,16 @@
     //s_fetchController.delegate = self;
     [_fetchController performFetch:nil];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self updateCurrentWeatherAllCities];
-    });
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        [self updateCurrentWeatherAllCities];
+//    });
+    
+//    dispatch_queue_t weatherDataQueue = dispatch_queue_create("weatherDataQueue", NULL);
+//    dispatch_async(weatherDataQueue, ^{
+//        [self updateCurrentWeatherAllCities];
+//    });
+    
+    [self performSelectorInBackground:@selector(updateCurrentWeatherAllCities) withObject:self];
     
     [self.collectionView reloadData];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
@@ -79,10 +86,11 @@
         NSManagedObjectContext *context = [NHCityManager sharedManager].mainContext;
         
         city.currentTemperature = current[@"temperature"];
+        city.currentSummary = current[@"summary"];
         
         [context save:nil];
     }
-    [self.collectionView reloadData];
+    [self.collectionView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
 
 //- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
@@ -103,12 +111,17 @@
         NHCity *city = [_fetchController objectAtIndexPath:indexPath];
         
         cityCell.CityName.text = city.name;
+
         UIImage *weatherIconImage = [UIImage imageNamed:@"bkn_i.png"];
         cityCell.weatherIcon = [[UIImageView alloc] initWithImage:weatherIconImage];
+
         if (city.currentTemperature != nil) {
             cityCell.currentTemperature.text = [NSString stringWithFormat:@"%.0f\u00B0", [city.currentTemperature floatValue]];
+        } else {
+            cityCell.currentTemperature.text = nil;
         }
-        cityCell.currentCondition.text = @"Cloudy"; //city.currentConditionDescription;
+        
+        cityCell.currentCondition.text = city.currentSummary;
     }
     
     return cell;
