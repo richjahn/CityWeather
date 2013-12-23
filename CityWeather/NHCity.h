@@ -19,4 +19,10 @@
 @property (nonatomic, retain) NSString *weatherIconFile;
 @property (nonatomic, retain) NSString *currentSummary;
 
+@property (nonatomic, retain) NSNumber *apparentTemperature;
+@property (nonatomic, retain) NSNumber *windSpeed;
+@property (nonatomic, retain) NSNumber *humidity;
+@property (nonatomic, retain) NSNumber *dewPoint;
+@property (nonatomic, retain) NSNumber *visibility;
+
 @end

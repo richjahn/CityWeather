@@ -18,4 +18,10 @@
 @dynamic weatherIconFile;
 @dynamic currentSummary;
 
+@dynamic apparentTemperature;
+@dynamic windSpeed;
+@dynamic humidity;
+@dynamic dewPoint;
+@dynamic visibility;
+
 @end

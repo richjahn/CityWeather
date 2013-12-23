@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NHCity.h"
 
 @interface NHNetworkManager : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 

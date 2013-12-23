@@ -7,6 +7,7 @@
 //
 
 #import "NHForecastViewController.h"
+#import "NHCityManager.h"
 
 @interface NHForecastViewController ()
 
@@ -24,6 +25,29 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     [self.navigationController setNavigationBarHidden:NO animated:NO];
+    
+    // get rid of initial blank space above first cell in table view
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    [self performSelectorInBackground:@selector(updateCurrentWeatherForCity) withObject:self];
+}
+
+- (void) updateCurrentWeatherForCity {
+    NSDate *currentTime = [NSDate date];
+    NHCityManager *cityManager = [NHCityManager sharedManager];
+    [cityManager updateCurrentWeatherForCity:self.city forDate:currentTime];
+    [self updateViewWithCurrentWeather];
+    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+}
+
+- (void) updateViewWithCurrentWeather {
+    self.cityName.text = self.city.name;
+    self.summary.text = self.city.currentSummary;
+    self.apparentTemperature.text = [NSString stringWithFormat:@"Feels like %.0f\u00B0F", [self.city.apparentTemperature floatValue]];
+    self.windSpeed.text = [NSString stringWithFormat:@"Wind: %.0f mph", [self.city.windSpeed floatValue]];
+    self.humidity.text = [NSString stringWithFormat:@"%.0f%%", [self.city.humidity floatValue] * 100.0];
+    self.dewPoint.text = [NSString stringWithFormat:@"Dew Pt: %.0f", [self.city.dewPoint floatValue]];
+    self.visibility.text = [NSString stringWithFormat:@"Visibility: %.0f mi", [self.city.visibility floatValue]];
 }
 
 #pragma mark - Table view data source
