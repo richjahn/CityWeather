@@ -36,6 +36,7 @@
 		A292CB591867FF9A00E31337 /* rain.png in Resources */ = {isa = PBXBuildFile; fileRef = A292CB501867FF9A00E31337 /* rain.png */; };
 		A292CB5A1867FF9A00E31337 /* sleet.png in Resources */ = {isa = PBXBuildFile; fileRef = A292CB511867FF9A00E31337 /* sleet.png */; };
 		A292CB5B1867FF9A00E31337 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = A292CB521867FF9A00E31337 /* snow.png */; };
+		A292CB5E186804FB00E31337 /* NHForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A292CB5D186804FB00E31337 /* NHForecastViewController.m */; };
 		A2950A94185AA9A60041722C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2950A93185AA9A60041722C /* Foundation.framework */; };
 		A2950A96185AA9A60041722C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2950A95185AA9A60041722C /* CoreGraphics.framework */; };
 		A2950A98185AA9A60041722C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2950A97185AA9A60041722C /* UIKit.framework */; };
@@ -99,6 +100,8 @@
 		A292CB501867FF9A00E31337 /* rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rain.png; path = "Forecast io Icons/rain.png"; sourceTree = "<group>"; };
 		A292CB511867FF9A00E31337 /* sleet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sleet.png; path = "Forecast io Icons/sleet.png"; sourceTree = "<group>"; };
 		A292CB521867FF9A00E31337 /* snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = snow.png; path = "Forecast io Icons/snow.png"; sourceTree = "<group>"; };
+		A292CB5C186804FB00E31337 /* NHForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHForecastViewController.h; sourceTree = "<group>"; };
+		A292CB5D186804FB00E31337 /* NHForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHForecastViewController.m; sourceTree = "<group>"; };
 		A2950A90185AA9A60041722C /* CityWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2950A93185AA9A60041722C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A2950A95185AA9A60041722C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -228,6 +231,8 @@
 				A2950AA3185AA9A60041722C /* NHAppDelegate.m */,
 				A2950ACB185AC17F0041722C /* Model.xcdatamodeld */,
 				A2950AA5185AA9A60041722C /* Main_iPhone.storyboard */,
+				A292CB5C186804FB00E31337 /* NHForecastViewController.h */,
+				A292CB5D186804FB00E31337 /* NHForecastViewController.m */,
 				A2950AA8185AA9A60041722C /* Main_iPad.storyboard */,
 				A2950AAB185AA9A60041722C /* NHCityViewController.h */,
 				A2950AAC185AA9A60041722C /* NHCityViewController.m */,
@@ -412,6 +417,7 @@
 				A2A3EF1118611D29005E8453 /* NHCityCell.m in Sources */,
 				A2950AA0185AA9A60041722C /* main.m in Sources */,
 				A2950ACD185AC17F0041722C /* Model.xcdatamodeld in Sources */,
+				A292CB5E186804FB00E31337 /* NHForecastViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
