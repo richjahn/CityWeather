@@ -53,10 +53,10 @@
 //    });
     
     [self performSelectorInBackground:@selector(updateCurrentWeatherAllCities) withObject:self];
-    
     [self.collectionView reloadData];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    [self.navigationController.navigationBar setNeedsDisplay];
+    
+
+   [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void) updateCurrentWeatherAllCities {
