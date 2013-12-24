@@ -149,7 +149,7 @@ NSString * const kSearchTextKey = @"Search Text"; /*< NSDictionary key for enter
 
 - (void)goBackToCityView {
     [self.view endEditing:YES];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.searchDisplayController setActive:NO animated:YES];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
